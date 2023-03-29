@@ -1,0 +1,674 @@
+/* seletor, utilizado geralmente para zerar o estilo margins e paddings */
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+/* seleção por tag */
+/* h1{
+  color: red
+}
+p{
+  color: blue
+} */
+
+/* seleção de dependentes, separando por virgula, somente elementos que estão */
+/* dentro dessas tag vao receber os estilos */
+/* body div span,
+body div p {
+  color: green
+} */
+
+/* .color-red {
+  color: red
+} */
+
+/* posso combinar selecto tags com classes de varias formas */
+/* .class h2 {
+  color: blue
+}
+
+.class .inner {
+  color: green
+} */
+
+/* div tem color inherit então se aplicar uma cor no pai vai aplicar na filha */
+/* aplicamos o initial para impedir isso */
+/* div{
+  color: initial;
+}
+
+.pai{
+  color: red;
+} */
+
+/* seletor que indica que o filho precisa estar diretamente após o pai */
+/* .pai > .filha{
+  color: blue;
+} */
+
+/* seleciona qualquer filha dentro da classe pai */
+/* .pai .filha{
+  color: green;
+} */
+
+/* dessa forma podemos adicionar estilo a elemento irmao que vem imediatamente após tal elemento */
+/* pode tambem ser usado com classes */
+/* .pai p+h1{
+  color: red;
+} */
+
+/* dessa forma podemos adicionar estilo a todos elementos irmaos que vem após tal elemento */
+/* .pai h1~p{
+  color: blue;
+} */
+
+/* selecao por atributo */
+/* [meu-atributo] {
+  color:red;
+} */
+
+/* selecao por valor do atributo */
+/* [meu-atributo="value"] {
+  color:blue;
+} */
+
+/* usando esse tipo de seleção se algum dos meus valores for esse ele aplica o estilo */
+/* [meu-atributo~="value1"] {
+  color:blue;
+} */
+
+/* para usar esse seletor ele precisa começar com esse valor e precisa ser seguido de traço */
+/* [meu-atributo|="somevalue"] {
+  color:green
+} */
+
+/* seleciona os elementos que começam com esse valor */
+/* [meu-atributo^="startwith"] {
+  color:red
+} */
+
+/* seleciona os elementos que terminam com esse valor */
+/* [meu-atributo$="1"] {
+  color:pink
+} */
+
+/* seleciona os elementos que contenham esse texto como parte do valor */
+/* [meu-atributo*="wit"] {
+  color:purple
+} */
+
+/* link nunca visitado */
+/* a:link{
+  color: darkblue
+} */
+
+/* link visitado */
+/* a:visited{
+  color: lightblue;
+}
+
+a:hover{
+  color: pink;
+}
+
+a:active{
+  color: greenyellow;
+}
+
+input:focus{
+  box-shadow: 0 0 18px rgba(0,0,0,0.5);
+}
+
+input:required{
+  background-color: lightgoldenrodyellow;
+}
+
+input:disabled{
+  cursor: not-allowed;
+  background-color: aqua;
+}
+
+input:checked{
+  width: 50px;
+  height: 50px;
+}
+
+ul li:first-child{
+  background-color: red;
+}
+
+ul li:last-child{
+  background-color: red;
+} */
+
+/* negação para algum elemento */
+/* ul li:not(.meio){
+  background-color: lightgreen;
+} */
+
+/* selecionando somente um elemento */
+/* ul li:nth-child(2) */
+
+/* seleciona os elementos pares */
+/* ul li:nth-child(even) */
+
+/* seleciona os elementos impares */
+/* ul li:nth-child(even) */
+
+/* seleciona os elementos de 4 em 4 */
+/* ul li:nth-child(4n) */
+
+/*
+ul li:nth-child(4n+2){
+  background-color: lightseagreen;
+} */
+
+/* pseudo elementos são usados para adicionar/modificar elementos pelo css */
+/* ul li::after {
+  content: ' - ';
+}
+
+div p{
+  font-size: 20px;
+}
+
+div p::first-letter{
+  font-size: 50px;
+  display: block;
+  float: left;
+  margin: 0 10px 10px 0;
+}
+
+div p::first-line{
+  font-size: 30px;
+  background-color: antiquewhite;
+}
+
+div p::selection{
+  background-color: black;
+  color:white
+}
+
+input::placeholder{
+  color: red
+} */
+
+/* ordem de especificidades */
+/* id > classes > atributos > pseudo classes > elementos > pseudo elements */
+/* 1    0                                      0 */
+/* 0    1                                      0 */
+/* 0    0                                      1 */
+/* no caso de especificidades empatarem em alguma casa vale a que vem por ultimo */
+/**** inline style é mais forte que as anteriores porém deve ser evitada ****/
+/**** porém !important é mais forte do que inline style mas tambem deve ser evitada ****/
+
+/* #parag {
+  background-color: lightblue;
+}
+
+.parag {
+  background-color: lightgreen;
+}
+
+p{
+  background-color: lightpink;
+} */
+
+/* selecionando pelo id e classe e elemento */
+/* p#parag.parag{
+  background-color: blue;
+} */
+
+/* heranças */
+/* color/font é uma propriedade que é herdada pelos elementos dentro desse elemento */
+/* no caso de tamanhos vale tambem o tipo de tamanho se é fixo ou relativo a algo Ex: em */
+/* body {
+  color: red;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+} */
+
+/* colocando initial evita que seja herdada alguma propriedade */
+/* podemos forçar a herança colocando inheret */
+/* p{
+  color: initial;
+} */
+
+/* box-model */
+/* display block aceita todos os valores de tamanho */
+/* como padrão toda div tem display block */
+/* display inline não aceita valores de tamanho */
+/* a propriedade overflow diz como é que queremos o comportamento do que excede o tamanho */
+/* margin auto é uma forma de sempre manter o elemento no centro */
+/* podemos usar o box-sizing para colocar os valores de borda e padding incluidos */
+/* nos valor de tamanhos Ex: content-box com width de 200px só o conteudo vai ter esse tamanho */
+/* agora com border-box 200px o total de conteudo padding e border terão que ter esse tamanho */
+/* .test{
+  background-color: bisque;
+  width: 300px;
+  height: 200px;
+  overflow: auto;
+  margin: 0 auto;
+  padding: 10px;
+  border: 10px solid lightsalmon;
+  box-sizing: border-box;
+}
+
+.test2{
+  display: inline;
+} */
+
+/* displays e float */
+/* o tipo de display inline-block mescla essas duas propriedades porém coloca um */
+/* espaço entre elas que se voce colar o elemento no html ele some */
+/* os principais displays são inline block flex e grid */
+/* quando temos margins em displays block grudados elas se sobrepoe */
+/* adicionado o float ele libera o espaço restante para outros elementos */
+/* porem utilzando float nao computa o tamanho no elemento pai Ex: grid aqui fica com 0 */
+/* se eu quiser colocar margin ele nao vai caber 3 elementos aqui */
+/* isso pode ser driblado colocando um conteudo na div e um padding no conteudo */
+/* .grid .coll{
+  width: 33.33%;
+  height: 300px;
+  float: left;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.grid{
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.grid .coll-content{
+  width: 100%;
+  height: 100%;
+  background-color: tomato;
+} */
+
+/* este é um truque para coloca tamanho no elemento pai que tem filhos float e tbm limitar que
+não se encavalem outros elementos ao lado */
+/* .grid::after{
+  content: '';
+  display: block;
+  clear: both;
+} */
+
+/* clear pode ser usado com float a logica é limpar o espaço indicado pra ele nao ficar
+encavalado com o float */
+/* p{
+  clear: left;
+} */
+
+/* cores */
+/* div{
+  width: 100px;
+  height: 100px;
+  margin: 5px
+}
+
+.color-name{
+  background-color: red;
+}
+.color-rgb{
+  background-color: rgb(255, 0, 0);
+} */
+/* o a do rgba é o alpha referente a opacidade */
+/* .color-rgba{
+  background-color: rgba(255, 0, 0, 0.5);
+}
+.color-hex{
+  background-color: #ff0000;
+} */
+/* o metodo curto do hex é quando quando cada par tem valores repetidos */
+/* .color-short-hex{
+  background-color: #f00;
+} */
+
+/* unidades de medida */
+/* temos medidas absolutas como px pt pc ... */
+/* temos medidas relativas rem em vh % ... */
+/* tambem temos o vmin e vmax que se refere o maior tamanho do viewport então se eu
+tenho algo 1vmin ele vai ter 1% do tamanho menor seja a altura ou largura o que
+estiver menor caso a tela seja mais larga que alta a altura vai ser usada e o
+vmax funciona do mesmo modo só que para o tamanho maior*/
+/* é aconselhavel usar medidas relativas pois se tem uma medida absoluta e eu
+mudar essa configuração no navegador ela nao vai ser aplicada */
+/* a medida % sempre é disrespeito ao elemento pai Ex: pai com largura 100px */
+/* o elemento filho com largura 50% vai ter 50px */
+
+
+/* uma forma de padronizar o rem para se comportar igual a px é definindo a  */
+/* font-size do root em 62.5% no qual 1rem vai resultar em 10px facilitando o calculo */
+/* usando o scroll-behavior smooth da aquela impressao de scroll leve */
+/* html{
+  font-size: 62.5%;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+div{
+  font-size: 50px;
+  height: 100vh;
+} */
+
+/* em se comporta herdando o tamanho do componente pai onde 1em é 1x a medida do pai*/
+/* .filho-pai{
+  font-size: 0.5em;
+} */
+
+/* rem se comporta herdando o tamanho do componente root(html) onde 1rem é 1x a medida do pai*/
+/* .filho-root{
+  font-size: 1rem;
+} */
+
+/* 1 vw tem o valor de 1% da largura do viewport então 5vw de uma pagina de */
+/* 1000px de largura vai ter 50px, texto vai crescendo conforme a largura */
+/* .filho-viewport-width{
+  font-size: 5vw;
+} */
+
+/* 1 vh tem o valor de 1% da altura do viewport então 2vh de uma pagina de */
+/* 500px de altura vai ter 10px, texto vai crescendo conforme a altura */
+/* .filho-viewport-height{
+  font-size: 2vh;
+} */
+
+/* ancoras */
+/* para usar ancoras bastar adicionar um id no elemento e um link para o elemento #id */
+
+/* textos */
+/* com o text-shadow primeiro parametro é o eixo horizontal o segundo vertical o  */
+/* terceiro blur e a cor */
+/* p{
+  direction: rtl;
+  letter-spacing: 5px;
+  text-decoration: underline line-through;
+  text-shadow: 2px 2px 5px red;
+  text-transform: uppercase;
+} */
+
+/* posicionamento */
+/* .pai{
+  height: 250vh;
+}
+
+.pai div{
+  margin: 10px;
+  width: 200px;
+  height: 200px;
+} */
+
+/* posicionamento static nao recebe posicionamento left/right/top/bottom */
+/* .filho-static{
+  position: static;
+  background-color: blue;
+  top: 50px;
+  left: 50px;
+} */
+
+/* position relative é relativo ao elemento pai */
+/* .filho-relative{
+  position: relative;
+  background-color: red;
+  top: 50px;
+  left: 50px;
+} */
+
+/* position absolute é relativo ao viewport, mas isso afeta outros elementos porque é */
+/* como se o element nao estivesse onde estava antes Ex: por cima de outros elementos */
+/* porem se o pai é relativo o absolute vai ser dentro do pai*/
+/* bastante utilizado em modais */
+/* porem se rolar a pagina ele vai ficar posicionada onde colocamos e se move com scroll */
+/* z-index é usado para sobrepor os elementos quanto maior mais 'na frente' */
+/* .filho-absolute{
+  position: absolute;
+  background-color: rgba(0, 255, 0, 0.5);
+  top: 80px;
+  left: 80px;
+  z-index: -1;
+} */
+
+/* position fixed tem o mesmo comportamento que o relative porem não se move com scroll */
+/* .filho-fixed{
+  position: fixed;
+  background-color: orchid;
+  left: 550px;
+} */
+
+/* com o position sticky podemos fixar onde ele vai ficar 'preso' ao rolar a pagina */
+/* se tiver mais elementos sticky eles vao se sobrepondo ao rolar a pagina */
+/* .filho-sticky{
+  position: sticky;
+  top: 0;
+  background-color: yellow;
+} */
+
+/* aula aplicando conhecimentos */
+/* .grid{
+  box-sizing: border-box;
+  max-width: 700px;
+  margin: 0 auto;
+  padding-top: 58px;
+}
+
+.grid::after{
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.filho{
+  width: 33.33%;
+  height: 200px;
+  float:left;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.filho-content{
+  background-color: aquamarine;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: -5px 5px 10px lightseagreen;
+}
+
+.menu{
+  width: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+ul{
+  list-style: none;
+  display: block;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+li{
+  float: left;
+}
+
+a{
+  display: block;
+  color: white;
+  padding: 20px;
+  text-decoration: none;
+  transition: all 300ms ease-in-out;
+}
+
+a:hover{
+  background-color: gray;
+}
+
+.lorem{
+  box-sizing: border-box;
+  max-width: 100%;
+  height: 100vh;
+  background-color: turquoise;
+}
+
+.lorem-content{
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 5px;
+  box-sizing: border-box;
+  padding-top: 58px;
+} */
+
+/* media queries */
+/* podemos utilizar media para otimizar o layout relativo ao tamanho da tela */
+/* @media (max-width: 320px){
+  .filho{
+    width: 100%;
+  }
+}
+
+@media (min-width: 321px) and (max-width: 640px){
+  .filho{
+    width: 50%;
+  }
+} */
+
+/* flex-box */
+/* main-axis é o eixo principal dado pelo flex-direction */
+/* cross-axis é o eixo secundario oposto do flex-direction */
+/* justify-context se refere ao alinhamento main axis */
+/* align-items se refere ao alinhamento cross axis */
+/* align-content se refere ao alinhamento de todo o conteudo e nao dos itens */
+/* a propriedade gap pode ser usado para adicionar espaço entre os filhos
+do container flex porem não é em todo dispositivos que funciona */
+/* a propriedade flex-wrap é como os itens vão se comportar se nao couber na tela */
+/* a propriedade align/justify-self se refere ao alinhamento somente daquele elemento */
+/* .flex-container{ */
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* justify-content: space-between; */
+  /* align-items: flex-start; */
+  /* flex-wrap: nowrap; */
+  /* background-color: yellow; */
+  /* height: 400px; */
+  /* gap: 10px; */
+  /* width: 450px; */
+/* } */
+
+/* flex-grow diz pro elemento usar o espaço que sobrar na tela/linha o padrão é 1 e
+se no meio tiver um elemento como 2 ele vai receber mais do que sobrar */
+/* flex-basis é usado como se fosse min-width, quando chegar no valor ele quebra */
+/* flex-shrink diz qual elemento vai ser diminuido caso nao tenha espaço para todos os
+elementos na tela, padrão é 1 e se tiver um elemento com 2 ele vai diminuir mais que os outros*/
+/* .flex-item{ */
+  /* flex-grow: 1;
+  flex-basis: 200px;
+  flex-shrink: 1; */
+  /* height: 200px; */
+  /* background-color: red; */
+  /* width: 100%; */
+  /* margin: 10px; */
+/* } */
+
+/* .flex-item:nth-child(2){
+  flex-shrink: 3;
+  background-color: blue;
+  justify-self: flex-end;
+} */
+
+/* order é usado para movimentar a ordem dos elementos */
+/* .flex-item:nth-child(2){
+  order: 1;
+}
+.flex-item:nth-child(1){
+  order: 2;
+} */
+
+/* grid */
+/* fr = fragmento */
+/* se a grid tiver muitas colunas podemos usar o repeat(numero de repeticoes, o que é pra repitir) */
+/* Ex: repeat(10, 1fr 2fr) */
+/* uma trick para deixar a grid responsiva é usar repeat(auto-fill, minmax(100px, 1fr)) */
+/* .grid{ */
+  /* display: grid; */
+  /* grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); */
+  /* grid-template-columns: repeat(3, 1fr); */
+  /* grid-template-rows: 2fr 1fr; */
+  /* gap: 10px;
+  max-width: 600px;
+  margin: 0 auto; */
+/* } */
+
+/* .grid div{
+  background-color: antiquewhite;
+  min-height: 100px;
+} */
+
+/* a proriedade grid-column/row-start/end é onde pode esticar/movimentar um elemento
+para outrascolunas e linhas espurrando as proximas para frente, essas quantro propriedades
+podem ser resumida com grid-area: 1 / 2 / 3 / 4 com barras separando */
+/* podemos tambem usar o span x para esticar um elemento especifico no meio da grid */
+/* .grid div:nth-child(5){ */
+  /* grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 5; */
+  /* background-color: lightsalmon; */
+  /* grid-column: span 2; */
+  /* grid-row: span 2; */
+/* } */
+
+/* .container{
+  margin: 0 auto;
+  max-width: 800px;
+} */
+
+/* grid-template-areas pode ser usado para customizar totalmente a grid com linhas e colunas */
+/* .grid{
+  display: grid;
+  grid-template-rows: 50px 1fr auto; cabecalho, conteudo, rodape
+  grid-template-columns: 100px 1fr;
+  grid-template-areas:
+  'header header' repetido aqui para ocupar as 2 colunas
+  'nav main'
+  'footer footer'
+  ;
+} */
+
+/* grid-area para nomear as areas da grid */
+/* .grid div:nth-child(1){
+  grid-area: header;
+  background-color: lightblue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.grid div:nth-child(2){
+  grid-area: nav;
+  background-color: lightcyan;
+}
+.grid div:nth-child(3){
+  grid-area: main;
+  background-color: lightskyblue;
+}
+
+.grid div:nth-child(4){
+  grid-area: footer;
+  background-color: beige;
+}
+
+@media (max-width: 600px){
+  .grid{
+    display: grid;
+    grid-template-rows: auto; cabecalho, conteudo, rodape
+    grid-template-columns: auto;
+    grid-template-areas:
+    'header' repetido aqui para ocupar as 2 colunas
+    'main'
+    'nav'
+    'footer'
+    ;
+  }
+} */

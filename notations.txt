@@ -1,0 +1,114 @@
+O comando (npx create-react-app .) cria os arquivos dentro do diretorio em que foi executado
+no lugar do ponto se digitar algo ele vai criar uma pasta e colocar tudo dentro.
+
+*** Função do Babel no projeto é converter o jsx para js que é compreensível para o navegador.
+*** Função do webpack(blunder) é converter nosso projeto e simplificar na hora de fazer o build
+Ex: minificar os arquivos.
+
+*** Minificar é retirar os espaços e também alguns nomes podem ser encurtados.
+
+Executando o npm run build será criado a pasta build que se voce entrar nela como um diretório
+e executar com o Ex: live server do vscode, ele vai executar o projeto buildado, isso é bom para
+ver se a aplicação está consistente para pode ser hospedada.
+
+*** React nao precisa estar na pagina toda, basta achar a div onde ele é renderizado e adicionar
+algum outro código que não seja React para testar.
+
+Stateless = componente sem estado
+Statefull = componente com estado
+A cada atualização no estado o método render é executado novamente
+
+---- ESLINT / PRETTIER ----
+
+executado o comando npx eslint src/**/*.js --fix ele ajeita os arquivos segundo as regras
+
+---- LifeCycles ----
+os mais comuns são (componentDidMount, componentDidUpdate, componentWillUnmount), porém com hooks
+isso é substituido pelo useEffect.
+
+*** https://jsonplaceholder.typicode.com/ é uma api ficticia para buscar dados!
+
+- Eventos Sintéticos
+são eventos que são criados pelo react semelhantes ao do DOM sem a necessidade de colocar um
+event listener para capturar Ex: (onclick(DOM) e onClick(React)).
+
+- Virtual DOM
+é uma cópia do DOM que o react faz para pode comparar o Virtual DOM com o DOM e só altera o que
+tem mudança, por isso que as vezes fazemos um setState e logo só colocamos o nome da const que
+foi atualizada e ela ainda está com o valor antigo.
+
+---- JEST ----
+describe() é como podem ser agrupados os testes, que podem ser test() ou it().
+
+Adicionando -- --coverage no npm test é gerado uma pasta com o coverage que pode ser acessado
+visualmente através de um arquivo index.
+
+*** jest-dom simula um DOM para poder fazer teste no frontend.
+*** Test-Driven Development(TDD) é quando voce escreve o teste antes de criar o componente.
+*** MSW(Mock Service Worker) é uma ferramenta usada para mockar uma série de coisas, como
+por exemplo get para alguma API externa.
+
+Voce consegue fazer um snapshot do seu component após estiver termiando para que os testes
+sempre comparem esse componente com o snapshot, caso algo mude do componente o teste falha.
+
+---- HOOKS ----
+
+- useCallback, juntamente com o memo/useMemo e o state embutido pode ser usado para prevenir que toda
+vez em que um componente é carregado, que ele precise recriar alguma função que nao sofreu nenhuma
+mudança.
+
+- useMemo, é usado para memoiazar componentes/funções para que não sejam renderizados toda vez que um
+estado é atualizado, legal pra usar em telas que fazer um fetch, e fica chamando isso toda fez que o
+estado muda, semelhante ao React.memo.
+
+*** esses 2 acimas devem ser usados com moderação pois salvam coisas na memória e pode ser mais custoso
+salvar na memória do que recriar, então só usar se for algo pesado!
+
+- useRef, tem um uso semelhante ao document.getElement... mas no react nao devemos usar isso pois o
+DOM pode estar diferente do VirtualDOM, criar uma const com o useRef(null) e no elemento html
+colocar uma flag ref={nomedasuaconstref}, voce pode alterar o valor de valor.current da sua
+referencia mas isso nao altera o estado.
+
+- useContext + createContext, é um hook que da a capacidade para o react de manter um contexto
+compartilhando dentro varios components, para evitar fazer uma cascata de props para que só o ultimo
+component realmente use o dado.
+
+- useReducer, seria como um useState para objetos complexos, onde voce pode passar o estado e tambem
+uma função com uma lógica específica, é recomendado usar o context com o reducer pois como ele executa
+uma lógica específica ele nao vai alterar todo o estado do contexto.
+
+*** redux não é nada mais do que o useContext com o useReducer.
+
+- useLayoutEffect, é como o useEffect porém e aplica sua alteração no DOM, a o mesmo tempo que ele faz
+o render do dom, para nao acontece o delay de o DOM atualizar e só após isso sua alteração acontecer.
+
+*** forwardRef para uma ref para um component.
+
+- useImperativeHandle, pode ser usado para passar ref entre um componente e outro mas não é recomendado
+a não ser que seja um caso específico!
+
+- useDebugValue, coloca uma label ou executa uma função de um custom hook que pode ser visualizado no
+chrome com o React Developer Tools > Components.
+
+*** podemos usar a estratégia de error boundary como se fosse um 'catch' do componente que apresentou
+o erro para que possamos tratar e evitar a quebra da tela toda.
+
+COMPOUND COMPONENT = é um padrão para fazer um componente composto, exemplo um <select> que em si não serve
+para não se não tiver tambem <options>.
+
+CONTEXT COMPONENT = é um padrão para fazer um component composto porém por meio de um contexto,
+exemplo um <select> que em si não serve paranão se não tiver tambem <options>.
+
+*** podemos usar o lazy do react para fazer o carregamento sob demanda, quando for ser usado ele carrega
+envolvendo o componente por um Suspense passando no fallbak algo pra ser exibido enquanto o componente
+é carregado, do RDT conseguir testar isso.
+
+*** fetch pode ser usado tanto para requisições quanto para carregar um html
+
+---- CSS ----
+
+Utilizando CSS temos diversos tipode de seletores sendo por tag/classe/atributo/posição
+
+*** Pseudo classes são os comportamentos que podemos usar me uma elemento como por Ex: div:hover
+*** Pseudo elementos são elementos que podem ser adicionados/modificados através do css como por
+Ex div::after {content: ' - '}
